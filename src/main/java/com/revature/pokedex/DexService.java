@@ -16,7 +16,7 @@ public class DexService extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        for (String pokemon: dexRepository.getPocketMonsters()){
+        for (String pokemon : dexRepository.getPocketMonsters()){
             resp.getWriter().println(pokemon);
         }
     }
