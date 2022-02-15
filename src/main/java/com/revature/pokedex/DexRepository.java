@@ -13,7 +13,6 @@ public class DexRepository {
 
     public DexRepository(String filename) {
         this.pocketMonsters = new ArrayList<>();
-
         this.file = getClass().getClassLoader().getResourceAsStream(filename);
         load();
 
@@ -30,4 +29,16 @@ public class DexRepository {
     public List<String> getPocketMonsters() {
         return pocketMonsters;
     }
+
+    public String getPokemon(String name){
+        String result = "";
+        for (String pokemon : this.pocketMonsters){
+            if (pokemon.contains(name)){
+                result = pokemon;
+            }
+        }
+        return result;
+
+    }
+
 }
