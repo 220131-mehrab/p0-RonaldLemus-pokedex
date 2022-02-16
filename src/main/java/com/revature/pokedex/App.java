@@ -12,10 +12,14 @@ public class App {
 
         Tomcat server = new Tomcat();
         server.setBaseDir(System.getProperty("java.io.tmpdir"));
+        server.setPort(0);
         server.getConnector();
         server.addContext(webAppName, null);
+
+        server.addServlet(webAppName, "defaultServlet", new DefaultServlet()).addMapping("/*");
         server.addServlet(webAppName, "dexServlet", dexService).addMapping("/pokemon");
         server.addServlet(webAppName, "searchFormServlet", sfService).addMapping("/search");
+       // System.out.println("Server running on http://localhost:" + server.getHost
         try {
             server.start();
         } catch (LifecycleException e) {
