@@ -8,7 +8,16 @@ public class PokemonTest {
     public void constructorTest(){
         String name = "Bulbausar";
         Pokemon pokemon = new Pokemon(name);
+        pokemon = new Pokemon(2,"Ivysaur", "Grass","Poison");
     }
+
+    @Test
+    public void builderTest(){
+        Pokemon actual = Pokemon.of().id(1).name("Bulbasaur").type1("Grass").type2("Poison");
+        Assertions.assertEquals("Bulbasaur", actual.getName());
+        actual = Pokemon.of().type2("Poison").name("Ivysaur").id(2);
+    }
+
     @Test
     public void nameTest(){
         Pokemon pokemon = new Pokemon("Squirtle");
