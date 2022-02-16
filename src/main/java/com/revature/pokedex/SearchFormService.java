@@ -20,6 +20,7 @@ public class SearchFormService extends HttpServlet {
                 "        <input type='name' name='searchName'/>\n" +
                 "        <input type='submit' value='Search'/>\n" +
                 "    " +
+                "       <a href='/pokemon>'See Full Pokedex</a>\n" +
                 "</form>\n" +
                 "</Body>\n" +
                 "</Html>";
