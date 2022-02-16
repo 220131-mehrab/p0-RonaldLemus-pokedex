@@ -20,7 +20,7 @@ public class SearchFormService extends HttpServlet {
                 "        <input type='name' name='searchName'/>\n" +
                 "        <input type='submit' value='Search'/>\n" +
                 "    " +
-                "    </form>\n" +
+                "</form>\n" +
                 "</Body>\n" +
                 "</Html>";
         resp.getWriter().println(HTMLForm);
