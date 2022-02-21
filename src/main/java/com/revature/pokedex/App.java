@@ -6,7 +6,9 @@ import org.apache.catalina.startup.Tomcat;
 public class App {
     public static void main(String[] args){
         String webAppName = "pokedex";
-        DexRepository dexRepository = new DexRepository("National_Pokedex.csv");
+        DexRepository dexRepository;
+        //Repository dexRepository = new CSVDexRepository("National_Pokedex.csv");
+        dexRepository = new InMemoryDexRepository();
         DexService dexService = new DexService(dexRepository);
         SearchFormService sfService = new SearchFormService();
 

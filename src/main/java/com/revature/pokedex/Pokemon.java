@@ -1,6 +1,8 @@
 package com.revature.pokedex;
 
-public class Pokemon {
+import java.util.Objects;
+
+public class Pokemon implements Comparable<Pokemon>{
     private String name;
     private int dexId;
     private String type1;
@@ -47,8 +49,39 @@ public class Pokemon {
         return this.name;
     }
 
+    public int getDexId() {
+        return dexId;
+    }
+
+    public String getType1() {
+        return type1;
+    }
+
+    public String getType2() {
+        return type2;
+    }
+
     @Override
     public String toString(){
         return this.name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Pokemon pokemon = (Pokemon) o;
+        return dexId == pokemon.dexId && Objects.equals(name, pokemon.name) && Objects.equals(type1, pokemon.type1) && Objects.equals(type2, pokemon.type2);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, dexId, type1, type2);
+    }
+
+    @Override
+    public int compareTo(Pokemon o) {
+        return Integer.compare(this.dexId,o.getDexId());
+
     }
 }

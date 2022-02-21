@@ -8,7 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class DexService extends HttpServlet {
-    private InMemoryDexRepository dexRepository;
+    private DexRepository dexRepository;
 
     public DexService(DexRepository dexRepository) {
         this.dexRepository = dexRepository;
